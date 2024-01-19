@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<title>Display文档</title>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #header {
+            background-color:black;
+            color:white;
+            text-align:center;
+            padding:5px;
+        }
+        #nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:3000px;
+            width:250px;
+            float:left;
+            padding:5px;
+        }
+        #section {
+            width:900px;
+            float:left;
+            padding:50px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+           padding:5px;
+        }
+    </style>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function copy(content, message) {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", content);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+            if (message == null) {
+                alert("复制成功");
+            } else{
+                alert(message);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<div id="header">
+<h1>Course-Display 课程显示</h1>
+</div>
+
+<div id="nav">
+    <a href="../smarterjson/">Smarterjson 智能json</a><br>
+    <a href="../senderfile/">SenDerFile 文件发送</a><br>
+    <hr>
+    <a href="../display/">当前：DisPlay</a><br>
+        <a href="#introduction" style="padding-left: 50px">|- 介绍</a><br>
+</div>
+
+<div id="section">
+    <h1 id="introduction">Course-Display 介绍</h1>
+</div>
+
+<div id="footer">
+    产品文档/介绍 for SenDerFile 文件发送
+</div>
+
+</body>
+</html>

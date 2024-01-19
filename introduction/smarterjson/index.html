@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<title>Smarterjson文档</title>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #header {
+            background-color:black;
+            color:white;
+            text-align:center;
+            padding:5px;
+        }
+        #nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:3000px;
+            width:250px;
+            float:left;
+            padding:5px;
+        }
+        #section {
+            width:900px;
+            float:left;
+            padding:50px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+           padding:5px;
+        }
+    </style>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function copy(content, message) {
+            var aux = document.createElement("input");
+            aux.setAttribute("value", content);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+            if (message == null) {
+                alert("复制成功");
+            } else{
+                alert(message);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<div id="header">
+<h1>Smarterjson文档介绍</h1>
+</div>
+
+<div id="nav">
+    <a href="../smarterjson/">当前：Smarterjson</a><br>
+    <a href="#introduction" style="padding-left: 50px">|- 介绍</a><br>
+    <a href="#download" style="padding-left: 50px">|- 下载安装</a><br>
+    <a href="#used" style="padding-left: 50px">|- 库使用</a><br>
+
+    <a href="#basic" style="padding-left: 70px">|- 库基础</a><br>
+    <a href="#write" style="padding-left: 90px">|- write函数</a><br>
+    <a href="#append" style="padding-left: 90px">|- append函数</a><br>
+    <a href="#read" style="padding-left: 90px">|- read函数</a><br>
+    <a href="#exist" style="padding-left: 90px">|- exist函数</a><br>
+    <a href="#revise" style="padding-left: 90px">|- revise函数</a><br>
+
+    <a href="#advance" style="padding-left: 70px">|- 库高级</a><br>
+    <hr>
+    <a href="../senderfile/">SenDerFile 文件发送</a><br>
+    <a href="../display/">DisPlay 课程显示</a><br>
+</div>
+
+<div id="section">
+    <h1 id="introduction">Smarterjson介绍</h1>
+    <p>一个python库，基于python标准发行版中的json库；</p>
+    <p>提供了部分算法以帮助更多json需求！</p>
+    <hr>
+    <h1 id="download">Python安装smarterjson</h1>
+    <code
+            onclick="copy('pip install smarterjson')"
+            style="font-size: 15px">
+        pip install smarterjson
+    </code>
+    <br>
+    <h2>pip下载慢<br>临时使用[清华镜像站]<br></h2>
+    <code
+            onclick="copy('pip install smarterjson -i https://pypi.tuna.tsinghua.edu.cn/simple some-package')"
+            style="font-size: 15px">
+        pip install smarterjson -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    </code>
+    <h2>永久使用[清华镜像站]<br></h2>
+    <p>再次之前您需要更新pip(>=10.0):<br></p>
+    <code
+            onclick="copy('python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip')"
+            style="font-size: 15px">
+        python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
+    </code>
+    <p>下载库<br></p>
+    <code
+            onclick="copy('pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple')"
+            style="font-size: 15px">
+        pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+    </code>
+    <hr>
+    <h1 id="used">smarterjson使用</h1>
+    <h2 id="basic">库基础</h2>
+    <h3 id="write">write函数</h3>
+    <h4>函数变量</h4>
+        <p style="padding-left: 30px">__value__为需要写入的值</p>
+        <p style="padding-left: 30px">fp为文件路径</p>
+        <p style="padding-left: 30px">encoding为编码</p>
+        <p style="padding-left: 30px">ensure_ascii表示编码时是否将非ASCII字符转换为unicode码</p>
+        <p style="padding-left: 30px">indent为写入缩进</p>
+    <h4>用途</h4>
+        <p style="padding-left: 30px">写入指定的json文件，相同值替换</p>
+    <hr>
+    <h3 id="append">append函数</h3>
+    <h4>函数变量</h4>
+        <p style="padding-left: 30px">__value__为需要追加值</p>
+        <p style="padding-left: 30px">fp为文件路径</p>
+        <p style="padding-left: 30px">encoding为编码</p>
+        <p style="padding-left: 30px">ensure_ascii表示编码时是否将非ASCII字符转换为unicode码</p>
+        <p style="padding-left: 30px">indent为写入缩进</p>
+    <h4>用途</h4>
+        <p style="padding-left: 30px">追加数据在指定的json文件下；相同值则替换</p>
+    <hr>
+    <h3 id="read">read函数</h3>
+    <h4>函数变量</h4>
+        <p style="padding-left: 30px">__content__为需要读取键的索引</p>
+        <p style="padding-left: 30px">fp为文件路径</p>
+        <p style="padding-left: 30px">encoding为编码</p>
+        <p style="padding-left: 30px">return_type为返回类型</p>
+    <h4>用途</h4>
+        <p style="padding-left: 30px">根据__content__来读取json文件</p>
+        <p style="padding-left: 30px">返回类型为str时则返回字符串</p>
+        <p style="padding-left: 30px">返回类型为list时则返回列表</p>
+        <p style="padding-left: 30px">返回类型为int时则返回长度</p>
+        <p style="padding-left: 30px">返回类型为dict时则返回字典</p>
+    <hr>
+    <h3 id="exist">exist函数</h3>
+    <h4>函数变量</h4>
+        <p style="padding-left: 30px">__key__为需要查找的键</p>
+        <p style="padding-left: 30px">fp为文件路径</p>
+        <p style="padding-left: 30px">encoding为编码</p>
+    <h4>用途</h4>
+        <p style="padding-left: 30px">根据fp来查找是否由指定的键存在于json文件中，返回布尔值</p>
+    <hr>
+    <h3 id="revise">revise函数</h3>
+    <h4>函数变量</h4>
+        <p style="padding-left: 30px">__content__为需要索引</p>
+        <p style="padding-left: 30px">__value__为需要写入的值</p>
+        <p style="padding-left: 30px">fp为文件路径</p>
+        <p style="padding-left: 30px">encoding为编码</p>
+        <p style="padding-left: 30px">ensure_ascii表示编码时是否将非ASCII字符转换为unicode码</p>
+        <p style="padding-left: 30px">indent为写入缩进</p>
+    <h4>用途</h4>
+        <p style="padding-left: 30px">根据__content__和fp来修改json中的值，值为__value__</p>
+    <hr>
+    <h2 id="advance">库高级</h2>
+</div>
+
+<div id="footer">
+    产品文档/介绍 for smarterjson 智能json
+</div>
+
+</body>
+</html>
